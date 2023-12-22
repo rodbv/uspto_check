@@ -42,7 +42,6 @@ def check(keyname, quiet):
                     )
                 )
         else:
-            failed_previously = True
             print(
                 (
                     f"[{timestamp}] 🤬 File {filename} not found. "
@@ -50,6 +49,7 @@ def check(keyname, quiet):
                 )
             )
 
+        failed_previously = True
         time.sleep(ONE_MINUTE)
 
 
