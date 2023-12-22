@@ -14,6 +14,8 @@ def check(keyname, quiet):
     filename = f"apc{keyname}.zip"
     url = f"https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/{filename}"
 
+    failed_previously = False
+
     while True:
         response = requests.head(url)
 
@@ -29,7 +31,7 @@ def check(keyname, quiet):
                         f"Check {url}"
                     )
                 )
-                if not quiet:
+                if not quiet and failed_previously:
                     beep("success")
                 return
             else:
@@ -40,6 +42,7 @@ def check(keyname, quiet):
                     )
                 )
         else:
+            failed_previously = True
             print(
                 (
                     f"[{timestamp}] 🤬 File {filename} not found. "
