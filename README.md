@@ -41,9 +41,11 @@ python check.py --keyname 231210
 
 
 The script will check USPTO every 60 seconds and print the result. When the file is found, you'll be greeted with a sound alert.
-You can suppress the sound by passing the `--quiet` parameter.
 
 ![image](https://github.com/rodbv/uspto_check/assets/882489/f38b0fe0-4f51-4910-9b0e-2c2ac54ac3fc)
+
+You can suppress the sound by passing the `--quiet` parameter.
+
 
 ### Dependencies
 
