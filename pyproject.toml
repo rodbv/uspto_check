@@ -11,9 +11,6 @@ beepy = "^1.0.7"
 requests = "^2.31.0"
 argparse = "^1.4.0"
 
-[tool.pylint]
-line_length = 100
-
 
 [build-system]
 requires = ["poetry-core"]
