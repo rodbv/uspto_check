@@ -12,16 +12,15 @@ Install [Poetry](https://python-poetry.org/) for dependency management and virtu
 2. Navigate to the project directory.
 3. Run the following command to install the project dependencies:
     
-    ```
-    poetry install
+```
+poetry install
+```
     
-    ```
 4. Initiate the virtual environment
 
-    ```
-    poetry shell
-    
-    ```
+```
+poetry shell
+```
 
     
 ### Usage
@@ -29,17 +28,15 @@ Install [Poetry](https://python-poetry.org/) for dependency management and virtu
     
 Run the script using the following command:
     
-    ```
-    python check_uspto.py
-    
-    ```
+```
+python check_uspto.py
+```
     
 This will check for the latest expected file. If you want a different date, pass the keyname as a parameter:
 
-    ```
-    python check_uspto.py 231210
-    
-    ```
+```
+python check_uspto.py 231210
+```
 
 
 The script will check USPTO every 60 seconds and print the result. When the file is found, you'll be greeted with a sound alert.
