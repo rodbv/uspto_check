@@ -39,7 +39,11 @@ python check.py 231210
 ```
 
 
-The script will check USPTO every 60 seconds and print the result. When the file is found, you'll be greeted with a sound alert.
+The script will check USPTO every 60 seconds and print the result. 
+
+![image](https://github.com/rodbv/uspto_check/assets/882489/85cb15be-2ccd-40e9-9e0a-1793d37764ef)
+
+You'll be informed with a sound alert when the file is found, so you can leave the checker running in the background.
 
 ![image](https://github.com/rodbv/uspto_check/assets/882489/f38b0fe0-4f51-4910-9b0e-2c2ac54ac3fc)
 
