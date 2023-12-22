@@ -48,8 +48,7 @@ When the file is found, it will check for the file size, since it's common for t
 
 If the file is less than 1MB in size, you'll see this:
 
-
-
+![image](https://github.com/rodbv/uspto_check/assets/882489/dee41d24-c489-4539-8369-7a86b05f2350)
 
 If the file size is OK, you'll be greeted with a sound alert.
 
