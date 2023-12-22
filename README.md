@@ -44,11 +44,19 @@ The script will check USPTO every 60 seconds and print the result.
 
 ![image](https://github.com/rodbv/uspto_check/assets/882489/c27798ff-af42-47e6-8c8b-89d04c0befc3)
 
-When the file is found, you'll be greeted with a sound alert.
+When the file is found, it will check for the file size, since it's common for the USPTO to make empty files available. 
+
+If the file is less than 1MB in size, you'll see this:
+
+
+
+
+If the file size is OK, you'll be greeted with a sound alert.
 
 ![image](https://github.com/rodbv/uspto_check/assets/882489/f38b0fe0-4f51-4910-9b0e-2c2ac54ac3fc)
 
 You can suppress the sound by passing the `--quiet` parameter.
+
 
 
 ### Pre-commit and Ruff Integration
