@@ -1,7 +1,7 @@
 import argparse
-import sys
 import time
 from datetime import datetime, timedelta
+from http import HTTPStatus
 
 import requests
 from beepy import beep
@@ -16,7 +16,7 @@ def check(keyname, quiet):
 
         timestamp = datetime.now().time().isoformat()[:8]
 
-        if response.status_code == 200:
+        if response.status_code == HTTPStatus.OK:
             print(f"[{timestamp}]✅ File {filename} found!\\nCheck {url}")
             if not quiet:
                 beep("success")
