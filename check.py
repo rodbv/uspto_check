@@ -7,9 +7,13 @@ import requests
 from beepy import beep
 
 
+MIN_FILE_SIZE = 1024 * 1024 # 1 MB
+ONE_MINUTE = 60
+
 def check(keyname, quiet):
     filename = f"apc{keyname}.zip"
     url = f"https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/{filename}"
+
 
     while True:
         response = requests.head(url)
@@ -17,23 +21,49 @@ def check(keyname, quiet):
         timestamp = datetime.now().time().isoformat()[:8]
 
         if response.status_code == HTTPStatus.OK:
-            print(f"[{timestamp}]✅ File {filename} found!\\nCheck {url}")
-            if not quiet:
-                beep("success")
-            return
+            file_size = int(response.headers.get("Content-Length", 0))
 
-        print(f"[{timestamp}] 🤬 File {filename} not found. Trying again in 1 minute")
-
-        time.sleep(60)
+            if file_size > MIN_FILE_SIZE:
+                print(
+                    (
+                        f"[{timestamp}] ✅ File {filename} found! (Size: {file_size} bytes)."
+                        f"Check {url}"
+                    )
+                )
+                if not quiet:
+                    beep("success")
+                return
+            else:
+                print(
+                    (
+                        f"[{timestamp}] 🙅‍♂️ File {filename} found, "
+                        f"but size is too small. Check {url}"
+                    )
+                )
+        else:
+            print(
+                (
+                    f"[{timestamp}] 🤬 File {filename} not found. "
+                    "Trying again in 1 minute."
+                )
+            )
+        
+        time.sleep(ONE_MINUTE)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--keyname", type=str, default=None, help="Specify the keyname, e.g. 231210 (YYMMDD)."
+        "--keyname",
+        type=str,
+        default=None,
+        help="Specify the keyname, e.g. 231210 (YYMMDD).",
     )
     parser.add_argument(
-        "--quiet", action="store_true", default=False, help="Suppress sound when file is found."
+        "--quiet",
+        action="store_true",
+        default=False,
+        help="Suppress sound when file is found.",
     )
 
     args = parser.parse_args()
