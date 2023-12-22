@@ -6,7 +6,7 @@ from http import HTTPStatus
 import requests
 from beepy import beep
 
-MIN_FILE_SIZE = 1024 * 1024  # 1 MB
+ONE_MEGABYTE = 1024 * 1024  # 1 MB
 ONE_MINUTE = 60
 
 
@@ -22,10 +22,10 @@ def check(keyname, quiet):
         if response.status_code == HTTPStatus.OK:
             file_size = int(response.headers.get("Content-Length", 0))
 
-            if file_size > MIN_FILE_SIZE:
+            if file_size > ONE_MEGABYTE:
                 print(
                     (
-                        f"[{timestamp}] ✅ File {filename} found! (Size: {round(file_size/(1024*1024),1)} MB). "
+                        f"[{timestamp}] ✅ File {filename} found! (Size: {round(file_size/ONE_MEGABYTE, 1)} MB). "
                         f"Check {url}"
                     )
                 )
