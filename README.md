@@ -51,13 +51,22 @@ When the file is found, you'll be greeted with a sound alert.
 You can suppress the sound by passing the `--quiet` parameter.
 
 
-### Dependencies
+### Pre-commit and Ruff Integration
 
-- Python >= 3.9
-- argparse
-- beepy
-- requests
+This project also utilizes [pre-commit](https://pre-commit.com/) and [Ruff](https://github.com/astral-sh/ruff) for code quality and formatting checks. The pre-commit configuration file can be found in the project repository.
 
+
+To set up pre-commit and integrate Ruff into your local development environment, follow these steps:
+
+
+1. Navigate to the project directory.
+2. Run the following command to install the pre-commit hooks:
+
+```
+pre-commit install
+```
+
+With pre-commit set up, Ruff will automatically check the formatting of Python files when you commit changes.
 
 ### License
 
