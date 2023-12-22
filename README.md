@@ -29,13 +29,13 @@ poetry shell
 Run the script using the following command:
     
 ```
-python check_uspto.py
+python check.py
 ```
     
 This will check for the latest expected file. If you want a different date, pass the keyname as a parameter:
 
 ```
-python check_uspto.py 231210
+python check.py 231210
 ```
 
 
