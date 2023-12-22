@@ -36,7 +36,7 @@ def check(keyname, quiet):
                 print(
                     (
                         f"[{timestamp}] 🙅‍♂️ File {filename} found, "
-                        f"but size is too small, {round(file_size/ONE_MEGABYTE, 1)} MB). Check {url}"
+                        f"but size is too small, {round(file_size/ONE_MEGABYTE, 1)} MB. Check {url}"
                     )
                 )
         else:
