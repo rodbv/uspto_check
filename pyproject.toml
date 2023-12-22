@@ -10,6 +10,7 @@ python = "^3.11"
 beepy = "^1.0.7"
 requests = "^2.31.0"
 argparse = "^1.4.0"
+pre-commit = "^3.6.0"
 
 
 [build-system]

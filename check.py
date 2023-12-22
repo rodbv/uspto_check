@@ -7,13 +7,13 @@ import requests
 from beepy import beep
 
 
-MIN_FILE_SIZE = 1024 * 1024 # 1 MB
+MIN_FILE_SIZE = 1024 * 1024  # 1 MB
 ONE_MINUTE = 60
+
 
 def check(keyname, quiet):
     filename = f"apc{keyname}.zip"
     url = f"https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/{filename}"
-
 
     while True:
         response = requests.head(url)
@@ -47,7 +47,7 @@ def check(keyname, quiet):
                     "Trying again in 1 minute."
                 )
             )
-        
+
         time.sleep(ONE_MINUTE)
 
 
