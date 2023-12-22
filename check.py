@@ -30,10 +30,10 @@ def check(keyname, quiet):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--keyname", type=str, default=None, help="Specify the keyname as a string"
+        "--keyname", type=str, default=None, help="Specify the keyname, e.g. 231210 (YYMMDD)."
     )
     parser.add_argument(
-        "--quiet", action="store_true", default=False, help="Suppress output messages"
+        "--quiet", action="store_true", default=False, help="Suppress sound when file is found."
     )
 
     args = parser.parse_args()
