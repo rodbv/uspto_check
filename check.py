@@ -22,8 +22,7 @@ def check(keyname, quiet):
                 beep("success")
             return
 
-        if not quiet:
-            print(f"[{timestamp}] 🤬 File {filename} not found. Trying again in 1 minute")
+        print(f"[{timestamp}] 🤬 File {filename} not found. Trying again in 1 minute")
 
         time.sleep(60)
 
