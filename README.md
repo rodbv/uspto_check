@@ -35,7 +35,7 @@ python check.py
 This will check for the latest expected file. If you want a different date, pass the keyname as a parameter:
 
 ```
-python check.py 231210
+python check.py --keyname 231210
 ```
 
 
@@ -48,8 +48,10 @@ You can suppress the sound by passing the `--quiet` parameter.
 ### Dependencies
 
 - Python >= 3.9
-- requests
+- argparse
 - beepy
+- requests
+
 
 ### License
 
