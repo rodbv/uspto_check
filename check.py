@@ -50,7 +50,7 @@ def check(keyname, quiet):
             )
 
         failed_previously = True
-        time.sleep(ONE_MINUTE)
+        time.sleep(5 * ONE_MINUTE)
 
 
 if __name__ == "__main__":
