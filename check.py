@@ -6,11 +6,12 @@ from http import HTTPStatus
 import requests
 from beepy import beep
 
-ONE_MEGABYTE = 1024 * 1024  # 1 MB
+ONE_KB = 1024
+ONE_MEGABYTE = 1024 * 1024
 ONE_MINUTE = 60
 
 
-def check(keyname, quiet):
+def check(keyname, quiet: bool = False, minutes: int = 1):
     filename = f"apc{keyname}.zip"
     url = f"https://bulkdata.uspto.gov/data/trademark/dailyxml/applications/{filename}"
 
@@ -38,19 +39,19 @@ def check(keyname, quiet):
                 print(
                     (
                         f"[{timestamp}] 🙅‍♂️ File {filename} found, "
-                        f"but size is too small, {round(file_size/ONE_MEGABYTE, 1)} MB. Check {url}"
+                        f"but size is too small, {round(file_size/ONE_KB, 1)} KB. Check {url}"
                     )
                 )
         else:
             print(
                 (
                     f"[{timestamp}] 🤬 File {filename} not found. "
-                    "Trying again in 1 minute."
+                    f"Trying again in {minutes} minute{"" if minutes == 1 else "s"}."
                 )
             )
 
         failed_previously = True
-        time.sleep(5 * ONE_MINUTE)
+        time.sleep(5 * ONE_MINUTE * minutes)
 
 
 if __name__ == "__main__":
@@ -67,6 +68,9 @@ if __name__ == "__main__":
         default=False,
         help="Suppress sound when file is found.",
     )
+    parser.add_argument(
+        "--minutes", type=int, default=1, help="Minutes to wait between checks."
+    )
 
     args = parser.parse_args()
     keyname = args.keyname
@@ -75,4 +79,4 @@ if __name__ == "__main__":
         yesterday = datetime.now() - timedelta(days=1)
         keyname = yesterday.strftime("%y%m%d")
 
-    check(keyname, args.quiet)
+    check(keyname, args.quiet, args.minutes)
