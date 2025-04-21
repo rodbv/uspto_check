@@ -46,7 +46,7 @@ def check(keyname, quiet: bool = False, minutes: int = 1):
             print(
                 (
                     f"[{timestamp}] 🤬 File {filename} not found. "
-                    f"Trying again in {minutes} minute{"" if minutes == 1 else "s"}."
+                    f"Trying again in {minutes} minute{'' if minutes == 1 else 's'}."
                 )
             )
 
